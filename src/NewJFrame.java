@@ -1,29 +1,20 @@
 
+import java.awt.Point;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.JDesktopPane;
 import javax.swing.JFileChooser;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Aitor
- */
 public class NewJFrame extends javax.swing.JFrame {
-
-    /**
-     * Creates new form NewJFrame
-     */
+    private int sumven=0;
+    
     public NewJFrame() {
         initComponents();
+        escritorio.setDragMode(JDesktopPane.OUTLINE_DRAG_MODE);
     }
 
     /**
@@ -35,7 +26,7 @@ public class NewJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Escritorio = new javax.swing.JDesktopPane();
+        escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         openItem = new javax.swing.JMenuItem();
@@ -45,14 +36,14 @@ public class NewJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);
-        Escritorio.setLayout(EscritorioLayout);
-        EscritorioLayout.setHorizontalGroup(
-            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
+        escritorio.setLayout(escritorioLayout);
+        escritorioLayout.setHorizontalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 783, Short.MAX_VALUE)
         );
-        EscritorioLayout.setVerticalGroup(
-            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        escritorioLayout.setVerticalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 620, Short.MAX_VALUE)
         );
 
@@ -107,11 +98,11 @@ public class NewJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Escritorio)
+            .addComponent(escritorio)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Escritorio)
+            .addComponent(escritorio)
         );
 
         pack();
@@ -134,7 +125,9 @@ public class NewJFrame extends javax.swing.JFrame {
                 if(v!=null){
                     int i = Integer.parseInt(v);
                     
-                    Escritorio.add(ventanaU);
+                    escritorio.add(ventanaU);
+                    sumven++;
+                    ventanaU.setLocation(new Point(sumven*20,sumven*20));
                     ventanaU.setVisible(true);
                     ventanaU.setImagen(ventana.getPanelImagen1().umbralizar(ventana.getPanelImagen1().getI(), i));
                     ventanaU.setTitle(name + " - Umbral: " + v);
@@ -161,7 +154,7 @@ public class NewJFrame extends javax.swing.JFrame {
         int res =fc.showOpenDialog(null);
         
         
-        JInternalFrame[] ventanaabierta = Escritorio.getAllFrames();
+        JInternalFrame[] ventanaabierta = escritorio.getAllFrames();
         if(ventanaabierta != null){
             for (JInternalFrame jInternalFrame : ventanaabierta) {
             jInternalFrame.dispose();
@@ -170,7 +163,7 @@ public class NewJFrame extends javax.swing.JFrame {
         if (res == JFileChooser.APPROVE_OPTION) {
             try{
                 name=fc.getSelectedFile().getName();
-                Escritorio.add(ventana);
+                escritorio.add(ventana);
                 ventana.setVisible(true);
                 ventana.setTitle(name);
                 ventana.setImagen(ImageIO.read(fc.getSelectedFile()));
@@ -221,7 +214,7 @@ public class NewJFrame extends javax.swing.JFrame {
     private InternalFrame ventana;
     private String name;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane Escritorio;
+    private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenuItem exitItem;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;

@@ -17,41 +17,35 @@ public class InternalFrame extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panel_Imagen_Dinamico1 = new Panel_Imagen_Dinamico();
-        panelImagen1 = new PanelImagen();
+        panelScroll = new javax.swing.JScrollPane();
+        panelImagen = new PanelImagen();
 
         setClosable(true);
         setMaximizable(true);
         setResizable(true);
 
-        panel_Imagen_Dinamico1.setAutoscrolls(true);
-        panel_Imagen_Dinamico1.setPreferredSize(new java.awt.Dimension(0, 0));
-
-        panelImagen1.setAutoscrolls(true);
-        panelImagen1.setPreferredSize(new java.awt.Dimension(20, 20));
-
-        javax.swing.GroupLayout panelImagen1Layout = new javax.swing.GroupLayout(panelImagen1);
-        panelImagen1.setLayout(panelImagen1Layout);
-        panelImagen1Layout.setHorizontalGroup(
-            panelImagen1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelImagenLayout = new javax.swing.GroupLayout(panelImagen);
+        panelImagen.setLayout(panelImagenLayout);
+        panelImagenLayout.setHorizontalGroup(
+            panelImagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 392, Short.MAX_VALUE)
         );
-        panelImagen1Layout.setVerticalGroup(
-            panelImagen1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelImagenLayout.setVerticalGroup(
+            panelImagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 280, Short.MAX_VALUE)
         );
 
-        panel_Imagen_Dinamico1.setViewportView(panelImagen1);
+        panelScroll.setViewportView(panelImagen);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_Imagen_Dinamico1, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
+            .addComponent(panelScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_Imagen_Dinamico1, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
+            .addComponent(panelScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
         );
 
         pack();
@@ -59,16 +53,16 @@ public class InternalFrame extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private PanelImagen panelImagen1;
-    private Panel_Imagen_Dinamico panel_Imagen_Dinamico1;
+    private PanelImagen panelImagen;
+    private javax.swing.JScrollPane panelScroll;
     // End of variables declaration//GEN-END:variables
 
     public PanelImagen getPanelImagen1() {
-        return panelImagen1;
+        return panelImagen;
     }
     public void setImagen(BufferedImage i){
-        panelImagen1.setI(i);
-        panelImagen1.setPreferredSize(new Dimension((int)i.getWidth(),(int)i.getHeight()));
-        panelImagen1.paintComponent(panelImagen1.getGraphics());
+        panelImagen.setI(i);
+        panelImagen.setPreferredSize(new Dimension((int)i.getWidth(),(int)i.getHeight()));
+        panelImagen.paintComponent(panelImagen.getGraphics());
     }
 }
