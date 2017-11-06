@@ -1,4 +1,5 @@
 
+import java.awt.Dimension;
 import java.awt.image.BufferedImage;
 
 public class InternalFrame extends javax.swing.JInternalFrame {
@@ -16,12 +17,18 @@ public class InternalFrame extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
+        panel_Imagen_Dinamico1 = new Panel_Imagen_Dinamico();
         panelImagen1 = new PanelImagen();
 
         setClosable(true);
         setMaximizable(true);
         setResizable(true);
+
+        panel_Imagen_Dinamico1.setAutoscrolls(true);
+        panel_Imagen_Dinamico1.setPreferredSize(new java.awt.Dimension(0, 0));
+
+        panelImagen1.setAutoscrolls(true);
+        panelImagen1.setPreferredSize(new java.awt.Dimension(20, 20));
 
         javax.swing.GroupLayout panelImagen1Layout = new javax.swing.GroupLayout(panelImagen1);
         panelImagen1.setLayout(panelImagen1Layout);
@@ -31,20 +38,20 @@ public class InternalFrame extends javax.swing.JInternalFrame {
         );
         panelImagen1Layout.setVerticalGroup(
             panelImagen1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 276, Short.MAX_VALUE)
+            .addGap(0, 280, Short.MAX_VALUE)
         );
 
-        jScrollPane1.setViewportView(panelImagen1);
+        panel_Imagen_Dinamico1.setViewportView(panelImagen1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(panel_Imagen_Dinamico1, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(panel_Imagen_Dinamico1, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
         );
 
         pack();
@@ -52,8 +59,8 @@ public class InternalFrame extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
     private PanelImagen panelImagen1;
+    private Panel_Imagen_Dinamico panel_Imagen_Dinamico1;
     // End of variables declaration//GEN-END:variables
 
     public PanelImagen getPanelImagen1() {
@@ -61,6 +68,7 @@ public class InternalFrame extends javax.swing.JInternalFrame {
     }
     public void setImagen(BufferedImage i){
         panelImagen1.setI(i);
+        panelImagen1.setPreferredSize(new Dimension((int)i.getWidth(),(int)i.getHeight()));
         panelImagen1.paintComponent(panelImagen1.getGraphics());
     }
 }
